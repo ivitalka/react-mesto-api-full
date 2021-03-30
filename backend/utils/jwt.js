@@ -1,8 +1,11 @@
 const jwt = require('jsonwebtoken');
 
-const JWT_SECRET_KEY = 'very_secret';
+const { NODE_ENV, JWT_SECRET } = process.env;
+
 const SALT_ROUNDS = 10;
 
-const generateSign = (payload) => jwt.sign({ payload }, JWT_SECRET_KEY, { expiresIn: '7d' });
+const generateSign = (payload) => jwt.sign({ payload },
+  NODE_ENV === 'production' ? JWT_SECRET : 'very_secret',
+  { expiresIn: '7d' });
 
-module.exports = { generateSign, JWT_SECRET_KEY, SALT_ROUNDS };
+module.exports = { generateSign, SALT_ROUNDS };
