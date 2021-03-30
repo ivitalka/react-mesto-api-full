@@ -1,0 +1,21 @@
+.button_action_edit {
+    width: 24px;
+    height: 24px;
+    margin: 20px 0 0 10px;
+    border: 1px solid #fff;
+    background-image: url("../../../images/edit.svg");
+}
+
+.button_action_edit:hover {
+    cursor: pointer;
+    opacity: .6;
+    transition: opacity .5s;
+}
+
+@media screen and (max-width: 520px) {
+    .button_action_edit {
+        width: 18px;
+        height: 18px;
+        margin: 20px 0 0 0 ;
+    }
+}

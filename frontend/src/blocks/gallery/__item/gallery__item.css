@@ -1,0 +1,8 @@
+.gallery__item {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 2.5fr .5fr;
+    position: relative;
+}

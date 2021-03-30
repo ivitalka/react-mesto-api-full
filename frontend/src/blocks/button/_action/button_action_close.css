@@ -1,0 +1,25 @@
+.button_action_close {
+    background-image: url("../../../images/close.svg");
+    width: 41px;
+    height: 41px;
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    top: -40px;
+    right: -40px;
+}
+
+.button_action_close:hover {
+    cursor: pointer;
+    opacity: .6;
+    transition: opacity .5s;
+}
+
+@media screen and (max-width: 658px) {
+    .button_action_close {
+        width: 26px;
+        height: 26px;
+        top: -30px;
+        right: 0;
+    }
+}

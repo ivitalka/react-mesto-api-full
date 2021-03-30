@@ -1,0 +1,6 @@
+.gallery__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 3px 17px 0 0;
+}

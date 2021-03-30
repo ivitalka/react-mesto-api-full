@@ -1,0 +1,9 @@
+.gallery {
+    padding-top: 47px;
+}
+
+@media screen and (max-width: 520px) {
+    .gallery {
+        padding-top: 21px;
+    }
+}

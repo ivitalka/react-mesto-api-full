@@ -1,0 +1,17 @@
+.button_action_like {
+    width: 21px;
+    height: 19px;
+    margin-top: 15px;
+    background-image: url("../../../images/like.svg");
+    background-size: contain;
+    align-self: center;
+    border: none;
+    background-color: #fff;
+    outline: none;
+}
+
+.button_action_like:hover {
+    cursor: pointer;
+    opacity: .6;
+    transition: opacity .5s;
+}

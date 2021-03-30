@@ -1,0 +1,17 @@
+.button_action_remove {
+    visibility: hidden;
+    background-image: url("../../../images/trash.svg");
+    width: 18px;
+    height: 19px;
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    top: 18px;
+    right: 15px;
+}
+
+.button_action_remove:hover {
+    cursor: pointer;
+    opacity: .6;
+    transition: opacity .5s;
+}

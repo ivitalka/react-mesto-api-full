@@ -1,0 +1,14 @@
+.popup__info {
+  width: 430px;
+  height: 330px;
+  background-color: #FFFFFF;
+  background-position-y: 60px;
+  background-position-x: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  text-align: center;
+}

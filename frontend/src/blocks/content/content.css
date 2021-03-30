@@ -1,0 +1,25 @@
+.content {
+}
+
+@media screen and (max-width: 1124px) {
+    .content {
+        padding: 0 100px;
+    }
+}
+
+@media screen and (max-width: 860px) {
+    .content {
+        padding: 0 50px;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .content {
+        padding: 0 30px;
+    }
+}
+@media screen and (max-width: 658px) {
+    .content {
+        padding: 0 20px;
+    }
+}
