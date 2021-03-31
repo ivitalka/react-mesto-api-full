@@ -1,4 +1,4 @@
-import { BASE_URL } from './Auth'
+const BASE_URL = `${window.location.protocol}${process.env.REACT_APP_API_URL || '//localhost:3001'}`
 
 class Api {
   constructor(config) {
