@@ -10,6 +10,8 @@ const auth = require('./middlewares/auth');
 const options = {
   origin: [
     'http://localhost:3000',
+    'http://ivitalka-mesto.nomoredomains.icu/',
+    'https://ivitalka-mesto.nomoredomains.icu/'
   ],
   methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
   preflightContinue: false,
