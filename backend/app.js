@@ -35,16 +35,21 @@ const app = express();
 app.use('*', cors(options));
 app.use(bodyParser.json());
 app.use(requestLogger);
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
 app.post('/signup', celebrate({
   body: Joi.object().keys({
     email: Joi.string().required().max(30),
-    password: Joi.string().required().max(30),
+    password: Joi.string().required().min(6).max(30),
   }),
 }), createUser);
 app.post('/signin', celebrate({
   body: Joi.object().keys({
     email: Joi.string().required().min(2).max(30),
-    password: Joi.string().required().min(6),
+    password: Joi.string().required().min(6).max(30),
   }),
 }), login);
 app.use(auth);
