@@ -6,6 +6,7 @@ const { celebrate, Joi, errors } = require('celebrate');
 const cors = require('cors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const auth = require('./middlewares/auth');
+const BadRequestError = require('./errors/bad-request-err')
 
 const options = {
   origin: '*',
@@ -36,8 +37,8 @@ app.use(bodyParser.json());
 app.use(requestLogger);
 app.post('/signup', celebrate({
   body: Joi.object().keys({
-    email: Joi.string().required().min(2).max(30),
-    password: Joi.string().required().min(6),
+    email: Joi.string().required().max(30),
+    password: Joi.string().required().max(30),
   }),
 }), createUser);
 app.post('/signin', celebrate({
@@ -55,8 +56,8 @@ app.use('/', celebrate({
     Authorization: Joi.string(),
   }).unknown(true),
 }), usersRouter, cardsRouter);
-app.use('*', (req, res) => {
-  res.status(404).send({ message: 'Страница не найдена' });
+app.use('*', () => {
+  throw new BadRequestError('Страница не найдена');
 });
 app.use(errorLogger);
 app.use(errors());

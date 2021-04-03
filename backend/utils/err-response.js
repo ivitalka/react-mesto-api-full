@@ -3,7 +3,7 @@ const BadRequestError = require('../errors/bad-request-err');
 const DuplicateError = require('../errors/duplicate-err');
 const InternalError = require('../errors/internal-err');
 const ForbiddenError = require('../errors/forbidden-err');
-const UnathorizedError = require('../errors/unauthorized-err');
+const UnauthorizedError = require('../errors/unauthorized-err');
 
 const MONGO_DUPLICATE_ERROR_CODE = 11000;
 
@@ -15,7 +15,7 @@ const errorResponse = (err) => {
     throw new BadRequestError(err.message);
   }
   if (err.statusCode === 401) {
-    throw new UnathorizedError(err.message);
+    throw new UnauthorizedError(err.message);
   }
   if (err.name === 'ValidationError') {
     throw new BadRequestError('Некорректные данные');
@@ -33,7 +33,7 @@ const errorResponse = (err) => {
 };
 
 const userNotFound = () => {
-  throw new NotFoundError('Такой пользователь не зарегестрирован');
+  throw new UnauthorizedError('Такой пользователь не зарегестрирован');
 };
 const cardNotFound = () => {
   throw new NotFoundError('Карточка не найдена');
