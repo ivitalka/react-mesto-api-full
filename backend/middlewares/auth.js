@@ -1,7 +1,6 @@
 const jwt = require('jsonwebtoken');
 const UserModel = require('../models/user');
-const UnathorizedError = require('../errors/unauthorized-err');
-const ForbiddenError = require('../errors/forbidden-err');
+const UnauthorizedError = require('../errors/unauthorized-err');
 const { errorResponse, userNotFound } = require('../utils/err-response');
 
 const { NODE_ENV, JWT_SECRET } = process.env;
@@ -9,14 +8,14 @@ const { NODE_ENV, JWT_SECRET } = process.env;
 module.exports = (req, res, next) => {
   const { authorization } = req.headers;
   if (!authorization || !authorization.startsWith('Bearer ')) {
-    throw new UnathorizedError('Требуется авторизация');
+    throw new UnauthorizedError('Требуется авторизация');
   }
   const token = authorization.replace('Bearer ', '');
   let payload;
   try {
     payload = jwt.verify(token, NODE_ENV === 'production' ? JWT_SECRET : 'very_secret');
   } catch (err) {
-    throw new ForbiddenError('Нет доступа');
+    throw new UnauthorizedError('Нет доступа');
   }
   UserModel.findById(payload.payload._id)
     .orFail(() => {

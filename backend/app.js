@@ -48,14 +48,7 @@ app.post('/signin', celebrate({
   }),
 }), login);
 app.use(auth);
-app.use('/', celebrate({
-  params: Joi.object().keys({
-    _id: Joi.string().alphanum().length(24),
-  }),
-  headers: Joi.object().keys({
-    Authorization: Joi.string(),
-  }).unknown(true),
-}), usersRouter, cardsRouter);
+app.use('/', usersRouter, cardsRouter);
 app.use('*', () => {
   throw new BadRequestError('Страница не найдена');
 });
