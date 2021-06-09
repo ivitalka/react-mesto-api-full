@@ -21,9 +21,12 @@ class Api {
     }).then((res) => this._getResponseData(res));
   }
 
-  updateProfile(data) {
+  updateProfile(data, token) {
     return fetch(`${this._url}/users/me`, {
-      headers: this._headers,
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'content-type': 'application/json',
+      },
       method: 'PATCH',
       body: JSON.stringify(data),
     }).then((res) => this._getResponseData(res));

@@ -40,7 +40,8 @@ function App() {
   function handleCardClick(card) { setSelectedCard(card); }
 
   function handleUpdateUser(data) {
-    api.updateProfile(data)
+      const token = localStorage.getItem('token')
+    api.updateProfile(data, token)
       .then((res) => {
         setCurrentUser(res);
         closeAllPopups();
