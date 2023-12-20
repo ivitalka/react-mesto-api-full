@@ -1,4 +1,4 @@
-const BASE_URL = `${window.location.protocol}${process.env.REACT_APP_API_URL || '//185.180.199.110:3001'}`
+const BASE_URL = `http://185.180.199.110:3001`
 
 export const register = (password, email) => fetch(`${BASE_URL}/signup`, {
   method: 'POST',
