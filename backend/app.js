@@ -19,7 +19,7 @@ const options = {
 
 const { PORT = 3001 } = process.env;
 
-mongoose.connect('mongodb://localhost:27017/mestodb', {
+mongoose.connect('mongodb://mongo:27017/mestodb', {
   useNewUrlParser: true,
   useCreateIndex: true,
   useFindAndModify: false,
